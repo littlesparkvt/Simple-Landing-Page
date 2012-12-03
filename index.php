@@ -51,6 +51,15 @@
         <div class="span12">
           <h1 class="logo">Simple Landing</h1>
         </div>
+
+<!--         <div class="span12">
+          <h2>Progress</h2>
+          <div class="progress progress-striped active">
+            <div class="bar" style="width: 65%;"></div>
+          </div>
+        </div> -->
+
+        
       </div>
       <div class="row">
         <div class="span6">
