@@ -52,6 +52,7 @@ Buttons
 Ace Subido (http://github.com/ace-subido)
 
 License
--
-
+--
 GPL
+
+There is no support for this template, you're on your own buddy! 
