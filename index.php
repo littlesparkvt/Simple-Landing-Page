@@ -1,9 +1,10 @@
+<?php require __DIR__ . "/config.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Simple Landing Page</title>
-    <meta name="description" content="Littlespark Coming soon page">
+    <title><?php echo $pageTitle; ?></title>
+    <meta name="description" content="<?php echo $companyName; ?> Coming soon page">
     <meta name="author" content="littlespark VT">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -30,9 +31,9 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/jquery.validationEngine.js" type="text/javascript"></script>
-    <script type="text/javascript"> 
+    <script type="text/javascript">
         $(document).ready(function() {
-          // SUCCESS AJAX CALL, replace "success: false," by:     success : function() { callSuccessFunction() }, 
+          // SUCCESS AJAX CALL, replace "success: false," by:     success : function() { callSuccessFunction() },
           $("#formID").validationEngine({
             success :  false,
             failure : function() {}
@@ -59,7 +60,7 @@
           </div>
         </div> -->
 
-        
+
       </div>
       <div class="row">
         <div class="span6">
@@ -82,16 +83,15 @@
       </form>
       <div id="code">
         <?php
-        if (isset($_POST['submit']) or isset($_POST['submit_x']))
-    {       
-          $to = "youremailaddress@email.com";
+        if (isset($_POST['submit']) or isset($_POST['submit_x'])) {
+          $to = $companyEmail;
           $subject = "Add this address to your mailing list";
           $email_field = $_POST['email'];
           $body = "E-Mail\n$email_field";
-           
+
           echo "Message Sent";
           mail($to, $subject, $body);
-        
+
         } else { }
         ?>
       </div>
@@ -103,20 +103,20 @@
     <hr>
     <div class="row">
       <div class="span12">
-          
+
           <h2 class="about">Time until site launch:</h2>
           <div id="counter">
             <!--counter is here -->
           </div>
-          
+
         </div>
-      </div>      
+      </div>
       <hr>
 
       <footer>
         <div class="row">
         <div class="span4">
-          <p>&copy; <a href="http://www.yourcompany.com">Your Company</a> 2012</p>
+          <p>&copy; <a href="<?php echo $companyUrl; ?>"><?php echo $companyName; ?></a> <?php echo date("Y"); ?></p>
         </div>
         </div>
       </footer>
@@ -125,14 +125,14 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    
+
   <script type="text/javascript" src="js/jquery.countdown.js"></script>
     <script type="text/javascript">
 <!--
 // CHANGE THESE NUMBERS TO SPECIFY YOUR LAUNCH DATE
     $(function () {
-      var liftoffTime = new Date(2013, 6 - 1, 22, 11, 00);
-      $('#counter').countdown({until: liftoffTime, 
+      var liftoffTime = new Date(<?php echo date("Y", strtotime($releaseDate)); ?>, <?php echo date("m", strtotime($releaseDate)); ?> - 1, <?php echo date("d", strtotime($releaseDate)); ?>);
+      $('#counter').countdown({until: liftoffTime,
         layout: '{dn} {dl}, {hn} {hl}, {mnn} {ml}, {snn} {sl}'});
     });
 -->
